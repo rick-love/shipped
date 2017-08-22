@@ -1,0 +1,2 @@
+class PlaneJob < ApplicationRecord
+end
