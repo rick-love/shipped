@@ -1,0 +1,19 @@
+<div id=''>
+	<%= form_for Job.new do |f| %>  
+		<%= f.label :Job_Name %><br>
+		<%= f.text_field :name %><br><br>
+		<%= f.label :Description %><br><br>
+		<%= f.text_field :description %><br>
+		<%= f.label :Origin %><br>
+		<%= f.text_field :origin %><br><br>
+		<%= f.label :Destination %><br>
+		<%= f.text_field :destination %><br><br>
+		<%= f.label :Cost %><br>
+		<%= f.text_field :cost %><br><br>
+		<%= f.label :Containers_needed %><br>
+		<%= f.text_field :containers %><br><br>
+		<h6 id = 'venueId'><%=f.label :venue_id %><br>
+		<%= f.text_field :venue_id, :value => @venue.id %> </h6>
+		<h3><%= f.submit %></h3>
+	<% end %>
+</div>
