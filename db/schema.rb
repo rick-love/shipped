@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170822183620) do
     t.string "name"
     t.integer "containers"
     t.string "location"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

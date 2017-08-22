@@ -8,7 +8,7 @@ class CreateJobs < ActiveRecord::Migration[5.1]
       t.integer :cost
       t.integer :containers
 
-      t.timestamps
+      t.timestamps 
     end
   end
 end
