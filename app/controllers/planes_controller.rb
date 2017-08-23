@@ -8,8 +8,8 @@ class PlanesController < ApplicationController
 	end
 
 	def create
-		@current_user = current_user
-		@planes = Plane.create(name: params[:plane][:name], containers: params[:plane][:containers], location: params[:plane][:location], user_id: @current_user)
+		@current_user = current_user.id
+		@planes = Plane.create(name: params[:plane][:name], containers: params[:plane][:containers], location: params[:plane][:location], avatar: params[:plane][:avatar], user_id: @current_user)
 		redirect_to action:'index'
 	end
 
