@@ -1,18 +1,22 @@
 <!-- Jobs Index Page -->
-<div id='jobs-container'>
+<div id='jobs-container' class='col-md-12'>
 	<h1> Available Jobs </h1>
 		
 	<% @jobs.reverse_each do |g| %>
 		
 		<div class='col-md-6'>
+			<img src='<%=g.avatar%>'>
+		</div>
+		<div class='col-md-6'>
 			<h3> <%= g.name %> </h3>
 			<p> <strong>Origin:</strong> <%= g.origin %> --> <strong>Destination: </strong><%= g.destination %> </p>
-			<p> <%= g.containers %> Containers to ship.</p>
-			<p> <%= g.description %> </p>
-			<p> $<%= g.cost %> </p>
-			<h5><td><%= link_to 'Take Job', new_plane_job_path(venue_id: g.id) %></td></h5>	
+			<p><strong>Freight Load Size:</strong> <%= g.containers %> Containers</p>
+			<p><strong>Description:</strong> <%= g.description %> </p>
+			<p><strong>Pay:</strong> $<%= g.cost %> </p>
+			<h3><td><%= link_to 'Take Job', new_plane_job_path(job_id: g.id) %></td></h5>	
 			 <td><%= link_to 'Delete Job', g, method: :delete %></td>
 		</div>
-		
+		<div id='dotted-line' class='col-md-12'>
+		</div>
 	<%end%>
 </div>

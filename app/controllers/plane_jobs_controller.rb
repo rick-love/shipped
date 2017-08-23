@@ -3,18 +3,13 @@ class PlaneJobsController < ApplicationController
 
 	def new 
 		@current_user = current_user
-		puts "hello!!!!!!!!!!!!"
 		@planes = @current_user.planes
-		puts @current_user.planes
-		puts Plane.all
-		puts "hello!!!!!!!!!!!!"
-		@job = Job.find(params[:venue_id])
-		@planeJob = PlaneJob.all
-		
+		@job = Job.find(params[:job_id])
+		@planeJob = PlaneJob.new
 	end
 
 	def create
-		@planeJob = PlaneJob.create(job_id: params[:planeJob][:job_id], plane_id: params[:planeJob][:plane_id])
+		@planeJob = PlaneJob.create({job_id: params[:plane_job][:job_id], plane_id: params[:plane_job][:plane_id]})
 		redirect_to controller: 'jobs', action:'index'
 	end
 

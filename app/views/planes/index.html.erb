@@ -1,5 +1,19 @@
-<h3> Planes index page </h3>
-<%= link_to "User", users_path %>
-<%= link_to "Jobs", jobs_path %>
-<%= link_to 'Add Plane', new_plane_path %>
-
+<div id='planes-container' class='col-md-12'>
+	<h1> Planes </h1>
+		
+	<% @planes.reverse_each do |g| %>
+		
+		<div class='col-md-6'>
+			<img src='<%=g.avatar%>'>
+		</div>
+		<div class='col-md-6'>
+			<h3> <%= g.name %> </h3>
+			<p><strong>Location:</strong> <%= g.location %></p>
+			<p><strong>Container Carrying Capacity:</strong> <%= g.containers %> Containers</p>
+			<p><strong>Current Jobs: </strong></p>
+			 <td><%= link_to 'Delete', g, method: :delete %></td>
+		</div>
+		<div id='dotted-line' class='col-md-12'>
+		</div>
+	<%end%>
+</div>
