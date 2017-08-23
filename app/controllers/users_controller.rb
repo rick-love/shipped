@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	def index
+		@user = User.all
 	end
 
 	def new
@@ -14,5 +15,12 @@ class UsersController < ApplicationController
 		else
 			render :new
 		end
+	end
+
+	def show
+		redirect_to action:'index'
+	end
+
+	def destroy
 	end
 end

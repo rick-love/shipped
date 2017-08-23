@@ -5,16 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :planes
 
-  before_create :system_add_user
-
-  def system_add_user
-  	"useradd #{self.username}"
-  end
-
-  before_save :encrypt_password
-
-  def encrypt_password
-  self.password = BCrypt.encrypt(self.password, self.password_salt)
-end
-
 end
