@@ -3,12 +3,12 @@ class PlanesController < ApplicationController
 		@planes = Plane.all
 	end 
 
-	def new
+	def new 
 		@planes = Plane.new
 	end
 
 	def create
-		@planes = Plane.create(name: params[:plane][:name], containers: params[:plane][:containers], location: params[:plane][:location])
+		@planes = Plane.create(name: params[:plane][:name], containers: params[:plane][:containers], location: params[:plane][:location], user_id: params[:plane][:user_id])
 		redirect_to action:'index'
 	end
 

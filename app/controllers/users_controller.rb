@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	def index
+		@user = User.all
 	end
 
 	def new
@@ -10,8 +11,16 @@ class UsersController < ApplicationController
 		@user = User.create(user_params)
 
 		if @user.save
-			redirect_to :back, notice : "User has been created"
+			redirect_to :back, notice: "User has been created"
 		else
 			render :new
+		end
+	end
+
+	def show
+		redirect_to action:'index'
+	end
+
+	def destroy
 	end
 end
