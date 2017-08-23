@@ -1,1 +1,18 @@
-edit.html.erb
+<div id='form'>
+	<%= form_for @jobs do |f| %>  
+		<%= f.label :Job_Name %><br>
+		<%= f.text_field :name %><br><br>
+		<%= f.label :Description %><br><br>
+		<%= f.text_field :description %><br>
+		<%= f.label :Origin %><br>
+		<%= f.text_field :origin %><br><br>
+		<%= f.label :Destination %><br>
+		<%= f.text_field :destination %><br><br>
+		<%= f.label :Cost %><br>
+		<%= f.text_field :cost %><br><br>
+		<%= f.label :Containers_needed %><br>
+		<%= f.text_field :containers %><br><br>
+		<%= f.submit %>
+	<% end %>
+</div>
+

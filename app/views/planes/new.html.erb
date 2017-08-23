@@ -1,0 +1,14 @@
+<!-- New Planes -->
+<h3> New Plane </h3>
+<div id='form'>
+	<%= form_for Job.new do |f| %>  
+		<%= f.label :Plane_name %><br>
+		<%= f.text_field :name %><br><br>
+		<%= f.label :Container_space %><br>
+		<%= f.text_field :containers %><br><br>
+		<%= f.label :Location %><br>
+		<%= f.text_field :location %><br><br>
+		<!-- needs the User Id somehow. Research session_id -->
+		<%= f.submit %>
+	<% end %>
+</div>
