@@ -5,6 +5,7 @@ class PlanesController < ApplicationController
 
 	def new 
 		@planes = Plane.new
+		@planes.avatar = params[:file]
 	end
 
 	def create

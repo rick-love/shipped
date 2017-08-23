@@ -2,11 +2,10 @@ class JobsController < ApplicationController
 	def index
 		@jobs = Job.all
 		@current_user = current_user
-		puts @current_user
 	end 
 
 	def new
-		@jobs = Job.new
+		@jobs = Job.new 
 	end
 
 	def create

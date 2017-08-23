@@ -1,10 +1,18 @@
 <!-- Jobs Index Page -->
-<h3> jobs index page </h3>
-<%= @current_user.email %>
-
-<br>
-<%= link_to "User", users_path %><br>
-<%= link_to "Planes", planes_path %><br>
-
-<%= link_to 'Add Job', new_job_path %>
-
+<div id='jobs-container'>
+	<h1> Available Jobs </h1>
+		
+	<% @jobs.reverse_each do |g| %>
+		
+		<div class='col-md-6'>
+			<h3> <%= g.name %> </h3>
+			<p> <strong>Origin:</strong> <%= g.origin %> --> <strong>Destination: </strong><%= g.destination %> </p>
+			<p> <%= g.containers %> Containers to ship.</p>
+			<p> <%= g.description %> </p>
+			<p> $<%= g.cost %> </p>
+			<h5><td><%= link_to 'Take Job', new_plane_job_path(venue_id: g.id) %></td></h5>	
+			 <td><%= link_to 'Delete Job', g, method: :delete %></td>
+		</div>
+		
+	<%end%>
+</div>
