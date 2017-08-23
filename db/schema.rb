@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170822183620) do
   end
 
   create_table "plane_jobs", force: :cascade do |t|
+    t.integer "plane_id"
+    t.integer "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

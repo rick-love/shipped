@@ -17,7 +17,4 @@ class User < ApplicationRecord
   self.password = BCrypt.encrypt(self.password, self.password_salt)
 end
 
-  validates :email, presence: true, message: "You need to enter an email."
-  validates :email, uniqueness: true
-
 end
