@@ -1,9 +1,10 @@
+<!-- Jobs Index Page -->
 <h3> jobs index page </h3>
 <% @user.each do |g| %>
-	<%= g.name %>
+	<%= g.email %>
 <% end %>
-
-<%= link_to "User", users_path %>
-<%= link_to "Planes", planes_path %>
+<br>
+<%= link_to "User", users_path %><br>
+<%= link_to "Planes", planes_path %><br>
 
 <%= link_to 'Add Job', new_job_path %>
