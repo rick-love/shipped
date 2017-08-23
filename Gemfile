@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'jquery-rails'
-
+# carrierwave
+gem 'carrierwave', '~> 1.0'
 # devise gem
 gem 'devise', '~> 4.2'
 #encryption gem
