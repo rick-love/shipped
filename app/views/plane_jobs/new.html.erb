@@ -1,11 +1,11 @@
 <div id='form-container'>
 	<h3> <%=@job.name%> </h3> 
 	<div id='form'>
-		<%= form_for Job.new do |f| %>  
+		<%= form_for PlaneJob.new do |f| %>  
 			<p id='hide'><%= f.label :Job_id %>
 			<%= f.text_field :job_id, :value => @job.id %></p>
 			<%= f.label :Planes_id %>
-			<%= f.select :plane_ids, @planes.collect {|x| [x.name, x.id]}, :multiple => true %>
+			<%= f.select :plane_id, @planes.collect {|x| [x.name, x.id]}, include_blank: true %>
 			<%= f.submit %>
 		<% end %>
 	</div>
