@@ -9,7 +9,7 @@ class JobsController < ApplicationController
 	end
 
 	def create
-		@jobs = Job.create(name: params[:job][:name], description: params[:job][:description], origin: params[:job][:origin], destination: params[:job][:destination], cost: params[:job][:cost] ,containers: params[:job][:containers])
+		@jobs = Job.create(name: params[:job][:name], description: params[:job][:description], origin: params[:job][:origin], destination: params[:job][:destination], cost: params[:job][:cost] ,containers: params[:job][:containers], avatar: params[:job][:avatar])
 		redirect_to action:'index'
 	end
 
