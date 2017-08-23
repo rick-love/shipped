@@ -1,7 +1,8 @@
 class JobsController < ApplicationController
 	def index
 		@jobs = Job.all
-		@user = User.all
+		@current_user = current_user
+		puts @current_user
 	end 
 
 	def new
