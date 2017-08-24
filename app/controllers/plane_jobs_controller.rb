@@ -3,7 +3,7 @@ class PlaneJobsController < ApplicationController
 
 	def new 
 		@current_user = current_user
-		@planes = @current_user.planes
+		@planes = current_user.planes
 		@job = Job.find(params[:job_id])
 		@planeJob = PlaneJob.new
 	end

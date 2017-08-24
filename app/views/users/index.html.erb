@@ -1,7 +1,11 @@
 <!-- Users Home Page -->
-<h3> Welcome </h3>
+<div id="usersHome" class="row">
 
-<div class="row">
-  <div class="col-md-4">.col-md-4</div>
-  <div class="col-md-8">.col-md-8</div>
+	<% @user.each do |u| %>
+
+		<h3> Welcome <%= u.email %> </h3>
+
+		  <div class="col-md-4">.col-md-4</div>
+		  <div class="col-md-8">.col-md-8</div>
+	<% end %>
 </div>
