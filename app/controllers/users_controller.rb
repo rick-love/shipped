@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 	def index
 		@user = User.all
+		@planes = Plane.all
+		@PlaneJobs = PlaneJob.all
+		@jobs = Job.all
+		@costTotal = 0
+		
 	end
 
 	def new
