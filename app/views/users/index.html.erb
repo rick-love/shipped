@@ -3,27 +3,36 @@
 
 	<% if user_signed_in? %>
 
-		<h3> Welcome <%= current_user.email %> </h3>
-		  <div class="col-md-6">
-		  <p><strong>Your planes:</strong></p>
-		  	<% @planes.where({user_id: current_user}).each do |p| %>
-		  	<%= p.name %><br>
-		  	<%= image_tag p.avatar %><br><br>
-		  	<% end %>
-</div>
+	<h3> Welcome <%= current_user.email %> </h3>
+	<div class="col-md-6">
+		<p><strong>Your planes:</strong></p>
+		<% @planes.where({user_id: current_user}).each do |p| %>
+		<%= p.name %><br>
+		<%= image_tag p.avatar %><br><br>
+		<% end %>
+	</div>
 	<% end %>
-		  <div class="col-md-6">
-		  <% if user_signed_in? %>
-		  	<p><strong><%= current_user.email %>, your current jobs:</strong></p>
+	
+	<div class="col-md-6">
+		<% if user_signed_in? %>
+
 			<% @planes.where({user_id: current_user.id}).each do |p| %>
-		  	<% @PlaneJobs.where({plane_id: p.id}).each do |j| %>
-		  	<% @costTotal = @costTotal + @jobs.find(j.job_id).cost %>
-		  	<p><strong>Job title: </strong><%= @jobs.find(j.job_id).name %></p>
-		  	<p><strong>Cost: </strong>$<%= @costTotal %></p><br>
-		  	<%= image_tag @jobs.find(j.job_id).avatar %>
-		  	<% end %>
-		  <% end %>
-		  <% end %>
-		  </div>
+				<% @PlaneJobs.where({plane_id: p.id}).each do |j| %>
+					<% @costTotal = @costTotal + @jobs.find(j.job_id).cost %>
+				<% end %>
+			<% end %>
+			<p><strong>Total earnings: </strong> <%= @costTotal %></p>
+
+			<p><strong><%= current_user.email %>, your current jobs:</strong></p>
+			<% @planes.where({user_id: current_user.id}).each do |p| %>
+				<% @PlaneJobs.where({plane_id: p.id}).each do |j| %>
+					<p><strong>Job title: </strong><%= @jobs.find(j.job_id).name %></p>
+					<p><strong>Cost: </strong><%= @jobs.find(j.job_id).cost %></p><br>
+					<%= image_tag @jobs.find(j.job_id).avatar %>
+				<% end %>
+			<% end %>
+
+		<% end %>
+	</div>
 
 </div>
