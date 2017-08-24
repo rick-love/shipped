@@ -23,6 +23,12 @@ class JobsController < ApplicationController
 	end
 
 	def show
+		@job = Job.find(params[:id])
+		@planes = Plane.all
+		@planejobs = PlaneJob.all
+		@total = 0
+		@final = 0
+		@current_user = current_user
 	end
 
 	def edit
