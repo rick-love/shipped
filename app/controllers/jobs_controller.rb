@@ -18,7 +18,10 @@ class JobsController < ApplicationController
 	end
 
 	def destroy
-		@jobs = Job.find(params[:id]).delete
+		@jobs = Job.find(params[:id])
+		@planejobs = PlaneJob.where({job_id: @jobs.id})
+		@planejobs.destroy_all
+		@jobs.delete
 		redirect_to action:'index'
 	end
 
