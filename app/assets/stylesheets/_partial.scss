@@ -3,9 +3,16 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	background-color: #fff;
+	background-color: #0097A7;
 	// z-index: 1040;
 	min-height: 65px;
+	margin-bottom:0;
+}
+.linker{
+	color: #B2EBF2 !important; 
+}
+.linker:hover {
+	color: #757575 !important;
 }
 
 .imageHolder{
@@ -16,19 +23,23 @@
 	font-size: 100px;
 }
 
+.alert {
+	margin:0;
+}
 #form-container {
 	width: 100%;
 	margin-top: 50px;
 	margin-left: 5%;
+	
 	#form {
 
 	}
-
 }
 #hide {
 	display:none;
 }
 h1 {
+	margin-top:0;
 	text-align: center;
 	text-decoration: underline;
 	margin-bottom: 25px;
@@ -36,5 +47,22 @@ h1 {
 
 #dotted-line {
 	margin-top: 25px;
+	margin-bottom:25px;
 	border-top: 5px dotted black;
 }
+//jobs show stuff
+#jobTitle {
+	text-align:center;
+}
+#assignJob {
+	text-align: center;
+}
+
+$darkpc: #0097A7;
+$defpc: #00BCD4;
+$lightpc: #B2EBF2;
+// .text-primary-color    { color: #FFFFFF; 
+// .accent-color          { background: #9E9E9E; 
+// .primary-text-color    { color: #212121; 
+// .secondary-text-color  { color: #757575;
+// .divider-color         { border-color: #BDBDBD; 

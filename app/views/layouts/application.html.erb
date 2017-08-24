@@ -21,15 +21,15 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-    <div class="navbar-header">
-          <%= link_to "User home page", root_path, class: "navbar-brand" %>
+    <div class="navbar-header linker">
+          <%= link_to "User home page", root_path, class: "navbar-brand linker" %>
    </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="jobs/index.html.erb" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs<span class="caret"></span></a>
+          <a href="jobs/index.html.erb" class="dropdown-toggle linker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Current jobs", jobs_path %></li>
             <li role="separator" class="divider"></li>
@@ -37,7 +37,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="planes/index.html.erb" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planes <span class="caret"></span></a>
+          <a href="planes/index.html.erb" class="dropdown-toggle linker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Planes <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "View the Fleight", planes_path %></li>
             <li role="separator" class="divider"></li>
@@ -45,7 +45,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle linker" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Sign In", new_user_session_path %></li>
             <li><%= link_to "Edit your profile", edit_user_registration_path %></li>
