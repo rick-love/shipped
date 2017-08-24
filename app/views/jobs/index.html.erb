@@ -1,5 +1,5 @@
 <!-- Jobs Index Page -->
-<div id='jobs-container' class='col-md-12'>
+<div id='jobs-container' class='col-md-12'> 
 	<h1> Available Jobs </h1>
 		
 	<% @jobs.reverse_each do |g| %>
@@ -10,10 +10,25 @@
 		<div class='col-md-6'>
 			<h3> <%= g.name %> </h3>
 			<p> <strong>Origin:</strong> <%= g.origin %> --> <strong>Destination: </strong><%= g.destination %> </p>
-			<p><strong>Freight Load Size:</strong> <%= g.containers %> Containers</p>
+			<p><strong>Freight Size:</strong> <%= g.containers %> Containers</p>
+			<p><strong>Planes Currently on the Job</strong></p>
+			<% @planejobs.where({job_id: g.id}).each do |x| %>
+				<%= @planes.find(x.plane_id).name%><br> 
+			<% end %>
+			<br>
+			<p><strong>Containers Remaining</strong></p>
+			<% @planejobs.where({job_id: g.id}).each do |x| %>
+				<% @total = @total + @planes.find(x.plane_id).containers%>
+				<% @final = g.containers - @total%>
+			<% end %>
+			<% if (@final > 0) %>
+				<%= @final %>
+				<%else%>
+				0
+			<%end%>
 			<p><strong>Description:</strong> <%= g.description %> </p>
 			<p><strong>Pay:</strong> $<%= g.cost %> </p>
-			<h3><td><%= link_to 'Take Job', new_plane_job_path(job_id: g.id) %></td></h5>	
+			<h3><td><%= link_to 'Assign Plane to Job', new_plane_job_path(job_id: g.id) %></td></h5>	
 			 <td><%= link_to 'Delete Job', g, method: :delete %></td>
 		</div>
 		<div id='dotted-line' class='col-md-12'>

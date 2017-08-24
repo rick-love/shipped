@@ -1,8 +1,12 @@
 class JobsController < ApplicationController
 	def index
 		@jobs = Job.all
+		@planes = Plane.all
+		@planejobs = PlaneJob.all
+		@total = 0
+		@final = 0
 		@current_user = current_user
-	end 
+	end  
 
 	def new
 		@jobs = Job.new 
