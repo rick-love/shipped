@@ -8,29 +8,32 @@
 		</p><br>
 		<p><strong>Planes Currently on the Job:</strong>
 		| <% @planejobs.where({job_id: @job.id}).each do |x| %>
-			<%= @planes.find(x.plane_id).name%> |
+				<%= @planes.find(x.plane_id).name%> |
 		<% end %>
 		</p><br>
 		<p><strong>Freight Size:</strong> <%= @job.containers %> Containers</p><br>
 		<p><strong>Containers Remaining:</strong>
+		
+			<% @planejobs.where({job_id: @job.id}).each do |x| %>
+				
+				<% @total = @total + @planes.find(x.plane_id).containers%>
+				<% @final = @job.containers - @total%>
+	
+		
+			<% end %>
 
-		<% @planejobs.where({job_id: @job.id}).each do |x| %>
-			<% @total = @total + @planes.find(x.plane_id).containers%>
-			<% @final = @job.containers - @total%>
-		<% end %>
-
-		<% if (@final > 0 && @final < @job.containers) %>
-			<%= @final %>
-			<% elsif (@final === 0)%>
-			<%= @job.containers %>
-			<% else %>
-			<%= 0 %>
-		<%end%></p><br>
+			<% if (@final > 0 && @final < @job.containers) %>
+				<%= @final %>
+				<% elsif (@final === 0)%>
+				<%= @job.containers %>
+				<% else %>
+				<%= 0 %>
+			<%end%></p><br>
 
 		<p><strong>Description:</strong> <%= @job.description %> </p><br>
 		<p><strong>Pay:</strong> $<%= @job.cost %> </p><br><br>
-		
-		 
 	</div>
-	<button><%= link_to "Back", jobs_path %></button><br><br>
+	<h3><td><%= link_to 'Assign Plane to Job', new_plane_job_path(job_id: @job.id) %></td></h3>
+		 <button id='center'><%= link_to "Back", jobs_path %></button><br><br>
+	
 </div>
