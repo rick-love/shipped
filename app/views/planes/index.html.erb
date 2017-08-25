@@ -1,19 +1,16 @@
-<div id='planes-container' class='col-md-12'>
-	<h1> Planes </h1>
+<h1> Planes </h1>
 		
-	<% @planes.reverse_each do |g| %>
-		
-		<div class='col-md-6'>
-			<img src='<%=g.avatar%>'>
-		</div>
-		<div class='col-md-6'>
-			<h3> <%= g.name %> </h3>
+<% @planes.reverse_each do |g| %>
+	<div class='Planes'>
+		<h3> <%= g.name %> </h3><br>
+		<img src='<%=g.avatar%>'>
+		<h6><%= link_to 'Delete', g, method: :delete %></h6>
+		<div class='description'>
+			<br>
 			<p><strong>Location:</strong> <%= g.location %></p>
 			<p><strong>Container Carrying Capacity:</strong> <%= g.containers %> Containers</p>
-			<p><strong>Current Jobs: </strong></p>
-			 <td><%= link_to 'Delete', g, method: :delete %></td>
+			<br>
+
 		</div>
-		<div id='dotted-line' class='col-md-12'>
-		</div>
-	<%end%>
-</div>
+	</div>
+<%end%>

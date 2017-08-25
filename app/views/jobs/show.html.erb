@@ -1,35 +1,36 @@
-<div id='jobTitle'>
+
+<div class='Planes'>
 	<h1><%= @job.name %> </h1>
-</div>
-<div class='col-md-6'>
+	 <h6><%= link_to 'Delete Job', @job, method: :delete %></h6>
 	<img src='<%=@job.avatar%>'>
-</div>
-<div class='col-md-6'>
-	<p> <strong>Origin:</strong> <%= @job.origin %> --> <strong>Destination: </strong><%= @job.destination %> </p>
-	<p><strong>Planes Currently on the Job:</strong>
-	| <% @planejobs.where({job_id: @job.id}).each do |x| %>
-		<%= @planes.find(x.plane_id).name%> |</p>
-	<% end %>
-	<p><strong>Freight Size:</strong> <%= @job.containers %> Containers</p>
-	<p><strong>Containers Remaining:</strong>
-	<% @planejobs.where({job_id: @job.id}).each do |x| %>
-		<% @total = @total + @planes.find(x.plane_id).containers%>
-		<% @final = @job.containers - @total%>
-	<% end %>
-	<% if (@final > 0 && @final < @job.containers) %>
-		<%= @final %>
-		<% elsif (@final === 0)%>
-		<%= @job.containers %>
-		<% else %>
-		<%= 0 %>
-	<%end%></p>
-	<p><strong>Description:</strong> <%= @job.description %> </p>
-	<p><strong>Pay:</strong> $<%= @job.cost %> </p>
-	 <td><%= link_to 'Delete Job', @job, method: :delete %></td><br>
-	 <%= link_to "Back", jobs_path %><br>
-</div>
-<div id='dotted-line' class='col-md-12'>
-</div>
-<div id='assignJob' class='col-md-12'>
-	<h3><td><%= link_to 'Assign Plane to Job', new_plane_job_path(job_id: @job.id) %></td></h3>
+	<div class='description'>
+		<p> <strong>Origin:</strong> <%= @job.origin %> --> <strong>Destination: </strong><%= @job.destination %> 
+		</p><br>
+		<p><strong>Planes Currently on the Job:</strong>
+		| <% @planejobs.where({job_id: @job.id}).each do |x| %>
+			<%= @planes.find(x.plane_id).name%> |
+		<% end %>
+		</p><br>
+		<p><strong>Freight Size:</strong> <%= @job.containers %> Containers</p><br>
+		<p><strong>Containers Remaining:</strong>
+
+		<% @planejobs.where({job_id: @job.id}).each do |x| %>
+			<% @total = @total + @planes.find(x.plane_id).containers%>
+			<% @final = @job.containers - @total%>
+		<% end %>
+
+		<% if (@final > 0 && @final < @job.containers) %>
+			<%= @final %>
+			<% elsif (@final === 0)%>
+			<%= @job.containers %>
+			<% else %>
+			<%= 0 %>
+		<%end%></p><br>
+
+		<p><strong>Description:</strong> <%= @job.description %> </p><br>
+		<p><strong>Pay:</strong> $<%= @job.cost %> </p><br><br>
+		
+		 
+	</div>
+	<button><%= link_to "Back", jobs_path %></button><br><br>
 </div>
