@@ -21,7 +21,7 @@
 			<h3>Current Jobs</h3><br>
 			<% @planes.where({user_id: current_user.id}).each do |p| %>
 				<% @PlaneJobs.where({plane_id: p.id}).each do |j| %>
-					<p><strong><%= @jobs.find(j.job_id).name %></strong></p>
+					<p><strong>| <%= @jobs.find(j.job_id).name %> |</strong></p>
 
 				<% end %>
 			<% end %>
