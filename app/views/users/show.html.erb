@@ -1,5 +1,8 @@
-<% if user_signed_in? %>
-	<div id="usersHome">
+<!-- Users Home Page -->
+
+<div id="usersHome">
+
+	<% if user_signed_in? %>
 
 	<h1> Welcome </h1> \
 <!-- 	<h1><%= current_user.email %> </h1> -->
@@ -28,18 +31,4 @@
 		</div>
 	</div>
 </div>
-
-<% else %>
-
-<div id='homey'>
-	<h1> Dream Airways </h1>
-	<div id='home'>
-	<h4> 'We Deliver Your Dreams' </h4>
-	</div>
-	<div id='signin'>
-		<button><%= link_to "Sign In", new_user_session_path %></button>
-		<button><%= link_to "Register here", new_user_registration_path %></button>
-	</div>
-</div>
-<!-- Users Home Page -->
-<% end %>
+		<% end %>

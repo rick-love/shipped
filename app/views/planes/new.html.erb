@@ -11,9 +11,12 @@
 	%> <br><br>
 			<%= f.label :Avatar %>
 			<%= f.file_field :avatar %> <br>
-			<%= f.submit %>
+		<div class='buttons'>
+			<span><%= f.submit %></span><br><br>
 		<% end %>
+		<button><%= link_to "Back", planes_path %></button><br><br>
+		</div>
 	</div>
 
-	<%= link_to "Back", planes_path %><br>
+	
 </div>
