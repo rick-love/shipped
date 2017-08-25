@@ -1,5 +1,5 @@
 class PlaneJobsController < ApplicationController
-
+ 
 
 	def new 
 		@current_user = current_user
